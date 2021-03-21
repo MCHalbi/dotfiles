@@ -1,0 +1,22 @@
+[user]
+	name = Lukas Halbritter
+	email = halbritl@informatik.uni-freiburg.de
+[core]
+	editor = vim
+[merge]
+	tool = vimdiff
+[color]
+	ui = true
+[alias]
+	co = checkout
+	br = branch
+	ci = commit
+	st = status
+	df = difftool
+	graph = log --graph --oneline --decorate=short
+[push]
+	default = simple
+[diff]
+	tool = vimdiff
+[difftool]
+	prompt = false
