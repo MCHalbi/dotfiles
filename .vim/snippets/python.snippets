@@ -1,0 +1,54 @@
+# General snippets #############################################################
+snippet init Empty init method
+	def __init__(self):
+		raise NotImplementedError()
+
+snippet main Main method and method call
+	def main():
+		pass
+
+	if __name__ == '__main__':
+		main()
+
+snippet startup
+	import argparse
+	import logging.config
+
+	logging.config.fileConfig(
+		fname='logging.conf',
+		disable_existing_loggers=False)
+	
+	def parse_arguments():
+		parser = argparse.ArgumentParser(description='${1:Description}')
+
+		return parser.parse_args()
+
+	def main():
+		args = parse_arguments()
+
+		${2:# Run code}
+	
+	if __name__ == '__main__':
+		main()
+
+# Unittest snippets ############################################################
+snippet testh Test file header
+	# pylint: disable=missing-docstring
+	import unittest
+
+snippet testc Test class
+	class ${1:Foo}Tests(unittest.TestCase):
+		def setUp(self):
+			pass
+
+snippet testm Test method
+	def test_${1:foo}(self):
+		raise AssertionError()
+
+snippet skip Skip test method
+	from unittest import skip
+	@skip # TODO
+
+# Comment snippets #############################################################
+snippet clnk
+	:class:\`${1:ClassName}\`

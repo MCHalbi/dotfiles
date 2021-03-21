@@ -15,5 +15,13 @@ call plug#begin('~/.vim/plugged')
   Plug 'junegunn/fzf.vim'
   Plug 'stsewd/fzf-checkout.vim'
   Plug 'tpope/vim-fugitive'
+  " SnipMate for snippets
+  Plug 'MarcWeber/vim-addon-mw-utils'
+  Plug 'tomtom/tlib_vim'
+  Plug 'garbas/vim-snipmate'
 call plug#end()
 
+filetype plugin indent on
+
+" Configure plugins
+source ~/.config/nvim/init/plugins/snipmate.vim
