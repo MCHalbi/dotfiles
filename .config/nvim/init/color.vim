@@ -4,3 +4,5 @@
 " capability bce (back color erase) which vim checks for, to decide whether to
 " use its 'default color' scheme.
 set background=dark
+
+autocmd FileType python colorscheme pythondark

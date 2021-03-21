@@ -19,6 +19,8 @@ call plug#begin('~/.vim/plugged')
   Plug 'MarcWeber/vim-addon-mw-utils'
   Plug 'tomtom/tlib_vim'
   Plug 'garbas/vim-snipmate'
+  " Airline
+  Plug 'vim-airline/vim-airline'
 call plug#end()
 
 " Configure plugins
