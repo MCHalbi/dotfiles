@@ -5,4 +5,17 @@
 " use its 'default color' scheme.
 set background=dark
 
+" Use python-specific color-scheme for python files
 autocmd FileType python colorscheme pythondark
+
+" Set highlighting for diff sections (for vimdiff)
+highlight DiffAdd    cterm=none ctermfg=White ctermbg=DarkGreen
+highlight DiffChange cterm=none ctermfg=White ctermbg=DarkBlue
+highlight DiffDelete cterm=bold ctermfg=White ctermbg=DarkRed
+highlight DiffText   cterm=bold ctermfg=White ctermbg=DarkBlue
+
+" Switch off syntax highlighting in vimdiff to avoid unreadable text due to
+" overlap of syntax highlighting and highlighted diff-sections.
+if &diff
+    syntax off
+endif
