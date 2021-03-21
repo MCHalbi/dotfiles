@@ -7,16 +7,17 @@ from subprocess import run
 import requests
 
 HOME = Path.home()
-NVIM_URL = "https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage"
-NVIM_INSTALL = f"{HOME}/.local/bin/nvim"
+NVIM_URL = ('https://github.com/neovim/neovim/releases/download/nightly/'
+            'nvim.appimage')
+NVIM_INSTALL = f'{HOME}/.local/bin/nvim'
 PACKAGES = f'{HOME}/.scripts/packages.txt'
 PYPI_PACKAGES = f'{HOME}/.scripts/pypi_packages.txt'
 
 
 def download_file(url, destination):
-    print(f"Downloading {url} to {destination}")
+    print(f'Downloading {url} to {destination}')
     request = requests.get(url)
-    with open(destination, "wb") as f:
+    with open(destination, 'wb') as f:
         f.write(request.content)
 
 
@@ -27,16 +28,18 @@ def make_executable(file_name):
 def install_nvim_if_not_installed():
     if Path(NVIM_INSTALL).is_file():
         return
-    print("Installing nvim")
+    print('Installing nvim.')
     download_file(NVIM_URL, NVIM_INSTALL)
     make_executable(NVIM_INSTALL)
 
 
 def install_packages():
+    print('Installing packages.')
     run(['xargs', '-a', PACKAGES, 'sudo', 'apt-get', 'install'], check=True)
 
 
 def install_python_packages():
+    print('Installing Python packages.')
     run(['pip3', 'install', '-r', PYPI_PACKAGES], check=True)
 
 
@@ -46,5 +49,5 @@ def main():
     install_python_packages()
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()
