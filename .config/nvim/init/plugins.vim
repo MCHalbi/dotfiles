@@ -21,7 +21,5 @@ call plug#begin('~/.vim/plugged')
   Plug 'garbas/vim-snipmate'
 call plug#end()
 
-filetype plugin indent on
-
 " Configure plugins
 source ~/.config/nvim/init/plugins/snipmate.vim
