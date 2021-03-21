@@ -1,0 +1,4 @@
+pdf3x2() {
+    pdfjam --outfile ./ --suffix print --nup 3x2 --landscape --scale 0.95 \
+           --delta '2mm 28mm' $1;
+}

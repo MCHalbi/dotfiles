@@ -36,11 +36,6 @@ alias vim='nvim'
 alias vimrc='vim ~/.config/nvim/init.vim'
 alias vimalias='vim ~/.bash_aliases && source ~/.bash_aliases'
 
-pdf3x2() {
-    pdfjam --outfile ./ --suffix print --nup 3x2 --landscape --scale 0.95 \
-           --delta '2mm 28mm' $1;
-}
-
 # -----------------------------------------------------------------------------
 # Backup data to scott
 # -----------------------------------------------------------------------------
