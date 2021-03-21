@@ -27,7 +27,7 @@ alias manage='python manage.py' # Use manage.py inside a django project
 # Git
 # ------------------------------------------------------------------------------
 alias gtop='cd `git rev-parse --show-toplevel`'
-alias adog='got log --all --decorate --oneline --graph'
+alias adog='git log --all --decorate --oneline --graph'
 
 # ------------------------------------------------------------------------------
 # Vim
