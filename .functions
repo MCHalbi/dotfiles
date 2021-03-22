@@ -7,4 +7,4 @@ pdf3x2() {
 # SSH
 # ------------------------------------------------------------------------------
 sshrepass() { ssh-keygen -pf $1; } # Change the password of a private key
-sshfp() { ssh-keygen -lf $1; } # Show SHA256 fingerprint of the public key
+sshfp() { ssh-keygen -lf $1; } # Show SHA256 fingerprint of a key
