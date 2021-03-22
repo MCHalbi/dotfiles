@@ -1,1 +1,1 @@
-au! BufNewFile,BufRead .functions set filetype=sh
+au BufNewFile,BufRead .functions setfiletype sh
