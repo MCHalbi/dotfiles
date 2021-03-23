@@ -21,6 +21,11 @@ alias goconf='cd ~/.config/'
 alias sshnew='ssh-keygen -t rsa -b 4096'
 
 # ------------------------------------------------------------------------------
+# tmate
+# ------------------------------------------------------------------------------
+alias tmate='tmate -f ~/.tmate.conf'
+
+# ------------------------------------------------------------------------------
 # Moving around in bash
 # ------------------------------------------------------------------------------
 alias ll='ls -l'
@@ -41,6 +46,7 @@ alias gtop='cd `git rev-parse --show-toplevel`'
 alias adog='git log --all --decorate --oneline --graph'
 alias ga='git add'
 alias gau='git add -u'
+alias gst='git status'
 
 # ------------------------------------------------------------------------------
 # YADM
