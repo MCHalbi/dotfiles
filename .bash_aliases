@@ -1,5 +1,9 @@
-# Install a package from the packet source
-alias dload='sudo apt-get install'
+# ------------------------------------------------------------------------------
+# apt-get
+# ------------------------------------------------------------------------------
+alias inst='sudo apt-get install'
+alias uu='sudo apt-get update && sudo apt-get upgrade'
+alias sc='sudo apt-get autoremove'
 
 # ------------------------------------------------------------------------------
 # Directory aliases
@@ -9,6 +13,7 @@ alias gopylib='cd /home/halbi/.local/lib/python3.5/site-packages/halbi'
 alias gopy='cd ~/Dokumente/Coding-Spielwiese/Python/'
 alias gopollux='cd ~/Dokumente/twaeng/pollux/'
 alias gotwaeng='cd ~/Dokumente/twaeng/'
+alias goconf='cd ~/.config/'
 
 # ------------------------------------------------------------------------------
 # SSH
@@ -34,7 +39,15 @@ alias manage='python manage.py' # Use manage.py inside a django project
 # ------------------------------------------------------------------------------
 alias gtop='cd `git rev-parse --show-toplevel`'
 alias adog='git log --all --decorate --oneline --graph'
+alias ga='git add'
 alias gau='git add -u'
+
+# ------------------------------------------------------------------------------
+# YADM
+# ------------------------------------------------------------------------------
+alias yl='yadm list'
+alias ya='yadm add'
+alias yau='yadm add -u'
 
 # ------------------------------------------------------------------------------
 # Vim
