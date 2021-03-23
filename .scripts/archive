@@ -1,0 +1,46 @@
+#!/usr/bin/env python3
+import argparse
+from subprocess import run
+
+USER = 'halbi'
+SERVER = 'scott'
+PORT = '2122'
+ARCHIVE_DIR = '/media/raid/archiv'
+
+
+def parse_arguments():
+    parser = argparse.ArgumentParser(
+        description='Move a file or directory to the archive.')
+
+    parser.add_argument(
+            '-f', '--file',
+            required=True,
+            type=str,
+            help='The file or directory to be moved to the archive.')
+
+    return parser.parse_args()
+
+
+def copy_to_archive(filepath: str) -> None:
+    run([
+        'scp',
+        '-r',
+        '-P', PORT,
+        filepath,
+        f'{USER}@{SERVER}:{ARCHIVE_DIR}'], check=True)
+
+
+def remove_locally(filepath: str) -> None:
+    run(['rm', '-r', filepath], check=True)
+
+
+def main():
+    args = parse_arguments()
+
+    # Run code
+    copy_to_archive(args.file)
+    remove_locally(args.file)
+
+
+if __name__ == '__main__':
+    main()
