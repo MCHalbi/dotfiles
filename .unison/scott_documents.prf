@@ -1,0 +1,30 @@
+# Mirror files from server
+root = /home/halbi/Dokumente/
+# root = ssh://halbi.ddnss.de//media/raid/dokumente
+root = ssh://192.168.178.24//media/raid/dokumente
+
+# Set SSH port and key
+sshargs = -p 2122 -i /home/halbi/.ssh/scott_id_rsa
+
+# Supress keyboard input requests
+batch = false
+auto = false
+
+# Generate a log file
+logfile = /home/halbi/.unison/log-scott_documents
+
+# Generate backups
+backup = Name *
+maxbackups = 5
+
+# Copy owner, group and time data of files
+group = true
+owner = true
+times = true
+
+# Ignore swap files
+ignore = Name {.*,*}.sw[pon]
+ignore = Name */__pycache__
+ignore = Name *.pyc
+
+# Unison preferences file
