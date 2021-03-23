@@ -16,16 +16,17 @@ alias gotwaeng='cd ~/Dokumente/twaeng/'
 alias sshnew='ssh-keygen -t rsa -b 4096'
 
 # ------------------------------------------------------------------------------
-# Show the content of the current folder as list
+# Moving around in bash
 # ------------------------------------------------------------------------------
 alias ll='ls -l'
 alias la='ls -la'
+alias q='exit'
 
 # -----------------------------------------------------------------------------
 # Python
 # -----------------------------------------------------------------------------
-alias python='python3' # Use always Python 3 by default
-alias pip='pip3'
+alias python='python3' # Always use Python 3 by default
+alias pip='pip3' # Always uses pip3 by default
 alias manage='python manage.py' # Use manage.py inside a django project
 
 # ------------------------------------------------------------------------------
@@ -33,13 +34,18 @@ alias manage='python manage.py' # Use manage.py inside a django project
 # ------------------------------------------------------------------------------
 alias gtop='cd `git rev-parse --show-toplevel`'
 alias adog='git log --all --decorate --oneline --graph'
+alias gau='git add -u'
 
 # ------------------------------------------------------------------------------
 # Vim
 # ------------------------------------------------------------------------------
 alias vim='nvim'
+
+# ------------------------------------------------------------------------------
+# Editing specific files
+# ------------------------------------------------------------------------------
 alias vimrc='vim ~/.config/nvim/init.vim'
-alias vimalias='vim ~/.bash_aliases && source ~/.bash_aliases'
+alias eda='vim ~/.bash_aliases && source ~/.bash_aliases'
 
 # -----------------------------------------------------------------------------
 # Backup data to scott
