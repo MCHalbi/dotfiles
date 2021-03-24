@@ -1,0 +1,10 @@
+#!/bin/bash
+# Generate a 3x2 slides per page print version of a pdf with landscape pages.
+# Good for generating print versions of lecture slides.
+pdfjam \
+  --outfile ./ \
+  --suffix print \
+  --nup 3x2 \
+  --landscape \
+  --scale 0.95 \
+  --delta '2mm 28mm' $1

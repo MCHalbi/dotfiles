@@ -1,0 +1,3 @@
+#!/bin/bash
+# Show SHA256 fingerprint of a key
+ssh-keygen -lf $1

@@ -1,0 +1,3 @@
+#!/bin/bash
+# Change the password of a private key
+ssh-keygen -pf $1

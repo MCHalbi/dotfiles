@@ -1,0 +1,8 @@
+#!/bin/bash
+
+scottRepoDir=ssh://halbi@halbi.ddnss.de:2122/media/raid/repositories
+scottRepoName=$1.git
+
+ssh scott "/media/raid/scripts/gitinit.sh $1"
+git init
+git remote add origin $scottRepoDir/$scottRepoName
