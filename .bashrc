@@ -1,24 +1,24 @@
-# ~/.bashrc: executed by bash(1) for non-login shells.
-# see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
-# for examples
-
 # If not running interactively, don't do anything
 case $- in
     *i*) ;;
       *) return;;
 esac
 
-# don't put duplicate lines or lines starting with space in the history.
-# See bash(1) for more options
+# ------------------------------------------------------------------------------
+# History
+# ------------------------------------------------------------------------------
+# Don't put duplicate lines or lines starting with space in the history.
 HISTCONTROL=ignoreboth
 
 # append to the history file, don't overwrite it
 shopt -s histappend
 
-# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=10000
-HISTFILESIZE=2000
+HISTSIZE=10000 # Size of command history
+HISTFILESIZE=20000 # Size of command history file
 
+# ------------------------------------------------------------------------------
+# Default stuff I haven't had a look into, yet.
+# ------------------------------------------------------------------------------
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
@@ -82,11 +82,7 @@ fi
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
-# Alias definitions.
-# You may want to put all your additions into a separate file like
-# ~/.bash_aliases, instead of adding them here directly.
-# See /usr/share/doc/bash-doc/examples in the bash-doc package.
-
+# Sourcing alias file
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
@@ -108,6 +104,9 @@ PROMPT_DIRTRIM=4
 
 eval $(thefuck --alias)
 
+# ------------------------------------------------------------------------------
+# Ruby stuff? Delete this as soon as I remember what it was for ...
+# ------------------------------------------------------------------------------
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/home/halbi/.sdkman"
 [[ -s "/home/halbi/.sdkman/bin/sdkman-init.sh" ]] && source "/home/halbi/.sdkman/bin/sdkman-init.sh"
