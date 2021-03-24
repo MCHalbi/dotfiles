@@ -10,8 +10,8 @@ HOME = Path.home()
 NVIM_URL = ('https://github.com/neovim/neovim/releases/download/nightly/'
             'nvim.appimage')
 NVIM_INSTALL = f'{HOME}/.local/bin/nvim'
-PACKAGES = f'{HOME}/.scripts/packages.txt'
-PYPI_PACKAGES = f'{HOME}/.scripts/pypi_packages.txt'
+PACKAGES = f'{HOME}/.scripts/packages.list'
+PYPI_PACKAGES = f'{HOME}/.scripts/pypi_packages.list'
 
 
 def download_file(url, destination):
