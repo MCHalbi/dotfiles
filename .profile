@@ -12,15 +12,23 @@
 if [ -n "$BASH_VERSION" ]; then
     # include .bashrc if it exists
     if [ -f "$HOME/.bashrc" ]; then
-	. "$HOME/.bashrc"
+      . "$HOME/.bashrc"
     fi
 fi
 
-# set PATH so it includes user's private bin directories
-PATH="$HOME/.config/composer/vendor/bin:$HOME/bin:$HOME/.local/bin:$PATH"
+# Set PATH so it includes my private bin directories (if they exists)
+if [ -d "$HOME/bin:" ]; then
+  PATH="$HOME/bin:$PATH"
+fi
 
-# Adding directories to PATH
-PATH="$HOME/.scripts:$PATH"
+if [ -d "$HOME/.local/bin:" ]; then
+  PATH="$HOME/.local/bin:$PATH"
+fi
+
+# Adding .scripts directory to PATH
+if [ -d "$HOME/.scripts:" ]; then
+  PATH="$HOME/.scripts:$PATH"
+fi
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
