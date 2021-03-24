@@ -4,7 +4,7 @@ root = /home/halbi/Dokumente/
 root = ssh://192.168.178.24//media/raid/dokumente
 
 # Set SSH port and key
-sshargs = -p 2122 -i /home/halbi/.ssh/scott_id_rsa
+sshargs = -p 2122 -i /home/halbi/.ssh/scott.key
 
 # Supress keyboard input requests
 batch = false
