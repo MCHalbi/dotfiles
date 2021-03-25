@@ -4,7 +4,7 @@ root = ssh://192.168.178.24//media/raid
 
 path = Dokumente
 path = .thunderbird/q2rsmif5.default-release
-path = .local/share/multimc
+path = .local/share/multimc/instances
 
 # Set SSH port and key
 sshargs = -p 2122 -i /home/halbi/.ssh/scott.key
