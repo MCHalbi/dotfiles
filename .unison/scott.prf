@@ -1,7 +1,10 @@
 # Mirror files from server
-root = /home/halbi/Dokumente/
-# root = ssh://halbi.ddnss.de//media/raid/dokumente
-root = ssh://192.168.178.24//media/raid/dokumente
+root = /home/halbi
+root = ssh://192.168.178.24//media/raid
+
+path = Dokumente
+path = .thunderbird/q2rsmif5.default-release
+path = .local/share/multimc
 
 # Set SSH port and key
 sshargs = -p 2122 -i /home/halbi/.ssh/scott.key
