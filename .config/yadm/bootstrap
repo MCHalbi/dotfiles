@@ -11,7 +11,7 @@ NVIM_URL = ('https://github.com/neovim/neovim/releases/download/nightly/'
             'nvim.appimage')
 NVIM_INSTALL = f'{HOME}/.local/bin/nvim'
 APT_PACKAGES = f'{HOME}/.scripts/apt_packages.list'
-DEB_PACKAGES = f'{HOME}/.scripts/deb_pacakges.list'
+DEB_PACKAGES = f'{HOME}/.scripts/deb_packages.list'
 PYPI_PACKAGES = f'{HOME}/.scripts/pypi_packages.list'
 
 
@@ -53,7 +53,7 @@ def dpkg_install_packages():
         filename = extract_filename_from_url(package_url)
         path = f'/tmp/{filename}'
         download_file(package_url, path)
-        run(['dpkg', '-i', path], check=True)
+        run(['sudo', 'dpkg', '-i', path], check=True)
 
 
 def pip3_install_packages():
