@@ -6,11 +6,11 @@ if [ -n "$BASH_VERSION" ]; then
 fi
 
 # Set PATH so it includes my private bin directories (if they exists)
-if [ -d "$HOME/bin:" ]; then
+if [ -d "$HOME/bin" ]; then
   PATH="$HOME/bin:$PATH"
 fi
 
-if [ -d "$HOME/.local/bin:" ]; then
+if [ -d "$HOME/.local/bin" ]; then
   PATH="$HOME/.local/bin:$PATH"
 fi
 
