@@ -15,7 +15,7 @@ if [ -d "$HOME/.local/bin" ]; then
 fi
 
 # Adding .scripts directory to PATH
-if [ -d "$HOME/.scripts:" ]; then
+if [ -d "$HOME/.scripts" ]; then
   PATH="$HOME/.scripts:$PATH"
 fi
 
