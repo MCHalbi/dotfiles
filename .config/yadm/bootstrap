@@ -10,7 +10,8 @@ HOME = Path.home()
 NVIM_URL = ('https://github.com/neovim/neovim/releases/download/nightly/'
             'nvim.appimage')
 NVIM_INSTALL = f'{HOME}/.local/bin/nvim'
-PACKAGES = f'{HOME}/.scripts/packages.list'
+APT_PACKAGES = f'{HOME}/.scripts/apt_packages.list'
+DEB_PACKAGES = f'{HOME}/.scripts/deb_pacakges.list'
 PYPI_PACKAGES = f'{HOME}/.scripts/pypi_packages.list'
 
 
@@ -19,6 +20,10 @@ def download_file(url, destination):
     request = requests.get(url)
     with open(destination, 'wb') as f:
         f.write(request.content)
+
+
+def extract_filename_from_url(url):
+    return url[url.rfind('/') + 1:]
 
 
 def make_executable(file_name):
@@ -33,20 +38,34 @@ def install_nvim_if_not_installed():
     make_executable(NVIM_INSTALL)
 
 
-def install_packages():
+def apt_install_packages():
     print('Installing packages.')
-    run(['xargs', '-a', PACKAGES, 'sudo', 'apt-get', 'install'], check=True)
+    run(['xargs', '-a', APT_PACKAGES, 'sudo', 'apt-get', 'install'], check=True)
 
 
-def install_python_packages():
+def dpkg_install_packages():
+    print('Downlading and installing .deb packages.')
+
+    with open(DEB_PACKAGES, 'r') as list_file:
+        package_list = list_file.read().splitlines()
+
+    for package_url in package_list:
+        filename = extract_filename_from_url(package_url)
+        path = f'/tmp/{filename}'
+        download_file(package_url, path)
+        run(['dpkg', '-i', path], check=True)
+
+
+def pip3_install_packages():
     print('Installing Python packages.')
     run(['pip3', 'install', '-r', PYPI_PACKAGES], check=True)
 
 
 def main():
-    install_packages()
     install_nvim_if_not_installed()
-    install_python_packages()
+    apt_install_packages()
+    pip3_install_packages()
+    dpkg_install_packages()
 
 
 if __name__ == '__main__':
