@@ -4,6 +4,7 @@ root = ssh://192.168.178.24//media/raid
 
 path = Dokumente
 path = .thunderbird/q2rsmif5.default-release
+path = .mozilla/firefox/i5l5hjla.default
 path = .local/share/multimc/instances
 
 # Set SSH port and key
