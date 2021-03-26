@@ -8,3 +8,17 @@ highlight ColorColumn ctermbg=lightblue
 
 " Mark text beyond the soft limit red
 match ErrorMsg '\%>80v.\+'
+
+" Show trailing spaces and tabs
+set list
+set listchars=tab:>-,trail:·
+
+function ToggleLineFeed()
+  if &listchars =~ 'eol'
+    set listchars-=eol:¶
+  else
+    set listchars+=eol:¶
+  endif
+endfunction
+
+nnoremap L :call ToggleLineFeed()<CR>

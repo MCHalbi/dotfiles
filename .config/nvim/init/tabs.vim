@@ -17,7 +17,3 @@ autocmd FileType make setlocal noexpandtab
 
 " Indent lines automatically
 set autoindent
-
-" Show trailing spaces and tabs
-set list
-set listchars=tab:>-,trail:·
