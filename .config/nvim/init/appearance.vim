@@ -21,4 +21,4 @@ function ToggleLineFeed()
   endif
 endfunction
 
-nnoremap L :call ToggleLineFeed()<CR>
+nnoremap <leader>L :call ToggleLineFeed()<CR>
