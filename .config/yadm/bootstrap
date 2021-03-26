@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+import json
 import os
 import stat
 from pathlib import Path
@@ -7,65 +8,107 @@ from subprocess import run
 import requests
 
 HOME = Path.home()
-NVIM_URL = ('https://github.com/neovim/neovim/releases/download/nightly/'
-            'nvim.appimage')
-NVIM_INSTALL = f'{HOME}/.local/bin/nvim'
-APT_PACKAGES = f'{HOME}/.scripts/apt_packages.list'
-DEB_PACKAGES = f'{HOME}/.scripts/deb_packages.list'
-PYPI_PACKAGES = f'{HOME}/.scripts/pypi_packages.list'
+
+# The install direcory contains a set of *.list files which are lists of
+# packages which should be installed.
+PCK_LISTS = f'{HOME}/.scripts/install'
+
+# apt_packages.list contains a list of all package names which should be
+# installed with 'apt-get install'.
+APT_PACKAGES = f'{PCK_LISTS}/apt_packages.list'
+
+# pypi_packages.list contains a list of python package names which should be
+# installed with 'pip3 install'.
+PYPI_PACKAGES = f'{PCK_LISTS}/pypi_packages.list'
+
+# deb_packages.list contains a list URLs of *.deb packages which should be
+# downloaded and then installed with 'dpkg -i'.
+DEB_URLS = f'{PCK_LISTS}/deb_packages.list'
+
+# bin_packages.json contains a dictionary of format {<program_name>: <URL>, ...}
+# This is for binaries which are available as is on the web and are to be
+# installed as program with the given name.
+BIN_URLS = f'{PCK_LISTS}/bin_packages.json'
+
+# The directory in which the binaries in BIN_URLS are installed.
+BIN_INSTALL = f'{HOME}/.local/bin'
 
 
-def download_file(url, destination):
-    print(f'Downloading {url} to {destination}')
-    request = requests.get(url)
-    with open(destination, 'wb') as f:
-        f.write(request.content)
+class Downloader:
+    @staticmethod
+    def download_file(url, destination):
+        print(f'Downloading {url} to {destination}')
+        request = requests.get(url)
+        with open(destination, 'wb') as f:
+            f.write(request.content)
 
 
-def extract_filename_from_url(url):
-    return url[url.rfind('/') + 1:]
+class Helpers:
+    @staticmethod
+    def make_executable(file_name):
+        os.chmod(file_name, os.stat(file_name).st_mode | stat.S_IEXEC)
+
+    @staticmethod
+    def extract_filename_from_url(url):
+        return url[url.rfind('/') + 1:]
+
+    @staticmethod
+    def load_from_json(file_name):
+        with open(file_name, 'r') as json_file:
+            return json.load(json_file)
 
 
-def make_executable(file_name):
-    os.chmod(file_name, os.stat(file_name).st_mode | stat.S_IEXEC)
+class Installer:
+    def install_all(self):
+        self.install_packages_from_package_sources()
+        self.install_packages_from_pypi()
+        self.install_packages_from_deb_files()
+        self.install_packages_from_binaries()
 
+    @staticmethod
+    def install_packages_from_package_sources():
+        print('Installing packages from package sources.')
+        run(['xargs', '-a', APT_PACKAGES, 'sudo', 'apt-get', 'install'],
+            check=True)
 
-def install_nvim_if_not_installed():
-    if Path(NVIM_INSTALL).is_file():
-        return
-    print('Installing nvim.')
-    download_file(NVIM_URL, NVIM_INSTALL)
-    make_executable(NVIM_INSTALL)
+    @staticmethod
+    def install_packages_from_pypi():
+        print('Installing Python packages from PyPi.')
+        run(['pip3', 'install', '-r', PYPI_PACKAGES], check=True)
 
+    @staticmethod
+    def install_packages_from_deb_files():
+        print('Downlading and installing .deb packages.')
 
-def apt_install_packages():
-    print('Installing packages.')
-    run(['xargs', '-a', APT_PACKAGES, 'sudo', 'apt-get', 'install'], check=True)
+        with open(DEB_URLS, 'r') as list_file:
+            package_list = list_file.read().splitlines()
 
+        for package_url in package_list:
+            filename = Helpers.extract_filename_from_url(package_url)
+            path = f'/tmp/{filename}'
 
-def dpkg_install_packages():
-    print('Downlading and installing .deb packages.')
+            Downloader.download_file(package_url, path)
+            run(['sudo', 'dpkg', '-i', path], check=True)
 
-    with open(DEB_PACKAGES, 'r') as list_file:
-        package_list = list_file.read().splitlines()
+    @staticmethod
+    def install_packages_from_binaries():
+        print('Downlading and installing binaries.')
+        bin_dict = Helpers.load_from_json(BIN_URLS)
 
-    for package_url in package_list:
-        filename = extract_filename_from_url(package_url)
-        path = f'/tmp/{filename}'
-        download_file(package_url, path)
-        run(['sudo', 'dpkg', '-i', path], check=True)
+        for program_name, url in bin_dict.items():
+            program_path = f'{BIN_INSTALL}/{program_name}'
+            if Path(program_path).is_file():
+                print(f'Skipping {program_name} (already installed).')
+                continue
 
-
-def pip3_install_packages():
-    print('Installing Python packages.')
-    run(['pip3', 'install', '-r', PYPI_PACKAGES], check=True)
+            print(f'Installing {program_name}.')
+            Helpers.download_file(url, program_path)
+            Helpers.make_executable(program_path)
 
 
 def main():
-    install_nvim_if_not_installed()
-    apt_install_packages()
-    pip3_install_packages()
-    dpkg_install_packages()
+    installer = Installer()
+    installer.install_all()
 
 
 if __name__ == '__main__':
