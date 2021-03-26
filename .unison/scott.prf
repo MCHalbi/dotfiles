@@ -14,7 +14,7 @@ batch = false
 auto = false
 
 # Generate a log file
-logfile = /home/halbi/.unison/log-scott_documents
+logfile = /home/halbi/.unison/log-scott
 
 # Generate backups
 backup = Name *
@@ -29,5 +29,3 @@ times = true
 ignore = Name {.*,*}.sw[pon]
 ignore = Name */__pycache__
 ignore = Name *.pyc
-
-# Unison preferences file
