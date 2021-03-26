@@ -3,7 +3,7 @@ import json
 import os
 import stat
 from pathlib import Path
-from subprocess import run
+from subprocess import run, check_output, CalledProcessError
 
 import requests
 
@@ -59,12 +59,6 @@ class Helpers:
 
 
 class Installer:
-    def install_all(self):
-        self.install_packages_from_package_sources()
-        self.install_packages_from_pypi()
-        self.install_packages_from_deb_files()
-        self.install_packages_from_binaries()
-
     @staticmethod
     def install_packages_from_package_sources():
         print('Installing packages from package sources.')
@@ -106,9 +100,56 @@ class Installer:
             Helpers.make_executable(program_path)
 
 
+class YADM:
+    @staticmethod
+    def decrypt():
+        print('Decrypting encrypted YADM archive.')
+        run(['yadm', 'decrypt'], check=True)
+
+    @staticmethod
+    def generate_public_key_files():
+        for keyfile in YADM._get_private_key_files():
+            private_key_path = keyfile.path
+            public_key_path = os.path.splitext(private_key_path)[0] + '.pub'
+
+            if os.path.isfile(public_key_path):
+                print(
+                    f'Skipping {public_key_path} (public key already exists).')
+                continue
+
+            try:
+                print(f'Generating public key {public_key_path}')
+                public_key = check_output(
+                    ['ssh-keygen', '-y', '-f', private_key_path])
+                public_key = public_key.decode('ascii')
+
+                with open(public_key_path, 'w') as public_key_file:
+                    public_key_file.write(public_key)
+
+                os.chmod(public_key_path, 644)
+            except CalledProcessError as error:
+                if error.returncode == 255:
+                    print('Skipping this key. You may want to manually '
+                          +'generate the key with \'ssh-keygen -y -f '
+                          + f'{private_key_path} > {public_key_path}\'')
+                else:
+                    raise
+
+    @staticmethod
+    def _get_private_key_files():
+        return [f for f in os.scandir(f'{HOME}/.ssh')
+                if f.path.endswith('.key') and f.is_file()]
+
+
+
 def main():
-    installer = Installer()
-    installer.install_all()
+    Installer.install_packages_from_package_sources()
+    Installer.install_packages_from_pypi()
+    Installer.install_packages_from_deb_files()
+    Installer.install_packages_from_binaries()
+
+    YADM.decrypt()
+    YADM.generate_public_key_files()
 
 
 if __name__ == '__main__':
