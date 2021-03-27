@@ -1,6 +1,6 @@
 # Mirror files from server
 root = /home/halbi
-root = ssh://192.168.178.24//media/raid
+root = ssh://192.168.178.24//media/raid/etc
 
 path = Dokumente
 path = .thunderbird/q2rsmif5.default-release
@@ -15,7 +15,7 @@ batch = false
 auto = false
 
 # Generate a log file
-logfile = /home/halbi/.unison/log-scott
+logfile = /home/halbi/.unison/log-home
 
 # Generate backups
 backup = Name *

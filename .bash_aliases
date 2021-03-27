@@ -65,7 +65,7 @@ alias eda='vim ~/.bash_aliases && source ~/.bash_aliases'
 # -----------------------------------------------------------------------------
 # Backup data to scott
 # -----------------------------------------------------------------------------
-alias bdocs='test -e /var/lock/unison-scott_documents && exit 0 || (touch /var/lock/unison-scott_documents;unison scott_documents; rm /var/lock/unison-scott_documents)'
+alias bdocs='test -e /var/lock/unison-home && exit 0 || (touch /var/lock/unison-home;unison home; rm /var/lock/unison-home)'
 
 # ------------------------------------------------------------------------------
 # Temporary aliases
