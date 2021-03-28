@@ -17,6 +17,10 @@ PCK_LISTS = f'{HOME}/.scripts/install'
 # installed with 'apt-get install'.
 APT_PACKAGES = f'{PCK_LISTS}/apt_packages.list'
 
+# snap_packages.list contains a list of all package names which should be
+# installed with 'snap install'.
+SNAP_PACKAGES = f'{PCK_LISTS}/snap_packages.list'
+
 # pypi_packages.list contains a list of python package names which should be
 # installed with 'pip3 install'.
 PYPI_PACKAGES = f'{PCK_LISTS}/pypi_packages.list'
@@ -66,6 +70,12 @@ class Installer:
             check=True)
 
     @staticmethod
+    def install_packages_from_snap_server():
+        print('Installing packages from snap server.')
+        run(['xargs', '-a', SNAP_PACKAGES, 'sudo', 'snap', 'install'],
+            check=True)
+
+    @staticmethod
     def install_packages_from_pypi():
         print('Installing Python packages from PyPi.')
         run(['pip3', 'install', '-r', PYPI_PACKAGES], check=True)
@@ -96,7 +106,7 @@ class Installer:
                 continue
 
             print(f'Installing {program_name}.')
-            Helpers.download_file(url, program_path)
+            Downloader.download_file(url, program_path)
             Helpers.make_executable(program_path)
 
 
@@ -144,6 +154,7 @@ class YADM:
 
 def main():
     Installer.install_packages_from_package_sources()
+    Installer.install_packages_from_snap_server():
     Installer.install_packages_from_pypi()
     Installer.install_packages_from_deb_files()
     Installer.install_packages_from_binaries()
