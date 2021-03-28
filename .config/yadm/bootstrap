@@ -154,7 +154,7 @@ class YADM:
 
 def main():
     Installer.install_packages_from_package_sources()
-    Installer.install_packages_from_snap_server():
+    Installer.install_packages_from_snap_server()
     Installer.install_packages_from_pypi()
     Installer.install_packages_from_deb_files()
     Installer.install_packages_from_binaries()
