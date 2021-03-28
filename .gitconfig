@@ -1,8 +1,8 @@
 [user]
 	name = Lukas Halbritter
-	email = halbritl@informatik.uni-freiburg.de
+	email = halbi93@gmx.de
 [core]
-	editor = vim
+	editor = nvim
 [merge]
 	tool = vimdiff
 [color]
