@@ -2,18 +2,18 @@
 root = /home/halbi
 root = ssh://192.168.178.24//media/raid
 
-path = Dokumente
-# path = .local/share/multimc/instances
+path = .thunderbird/q2rsmif5.default-release
+path = .mozilla/firefox/i5l5hjla.default
 
 # Set SSH port and key
 sshargs = -p 2122 -i /home/halbi/.ssh/scott.key
 
 # Supress keyboard input requests
-batch = false
-auto = false
+batch = true
+auto = true
 
 # Generate a log file
-logfile = /home/halbi/.unison/log-home
+logfile = /home/halbi/.unison/log-mozilla
 
 # Generate backups
 backup = Name *
@@ -28,3 +28,4 @@ times = true
 ignore = Name {.*,*}.sw[pon]
 ignore = Name */__pycache__
 ignore = Name *.pyc
+
