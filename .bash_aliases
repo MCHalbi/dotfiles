@@ -14,6 +14,7 @@ alias gopy='cd ~/Dokumente/Coding-Spielwiese/Python/'
 alias gopollux='cd ~/Dokumente/twaeng/pollux/'
 alias gotwaeng='cd ~/Dokumente/twaeng/'
 alias goconf='cd ~/.config/'
+alias gomaster='cd ~/Dokumente/Studium/master/master_thesis'
 
 # ------------------------------------------------------------------------------
 # tmate
@@ -68,6 +69,6 @@ alias eda='vim ~/.bash_aliases && source ~/.bash_aliases'
 alias bdocs='test -e /var/lock/unison-home && exit 0 || (touch /var/lock/unison-home;unison home; rm /var/lock/unison-home)'
 
 # ------------------------------------------------------------------------------
-# Temporary aliases
+# GTD
 # ------------------------------------------------------------------------------
-alias planner='~/Dokumente/Studium/master/07_WS2020/MasterProjekt/planner/planner'
+alias daily='cd ~/Dokumente/GTD && vim -S Daily.vim'
