@@ -7,6 +7,13 @@ gparted
 texlive
 texlive-lang-german
 texlive-latex-extra
+texlive-extra-utils
 telegram-desktop
-jackd
 qjackctl
+sqlite3
+sqlitebrowser
+php7.4-cli
+gimp
+gimp-help-de
+language-pack-gnome-de
+htop

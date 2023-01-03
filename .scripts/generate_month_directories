@@ -1,0 +1,6 @@
+#!/bin/bash
+MONTHS=(ZERO Januar Februar März April Mai Juni Juli August September Oktober November Dezember)
+
+for i in {1..12} ; do
+  mkdir "$(printf "%02d" $i) - ${MONTHS[$i]}"
+done

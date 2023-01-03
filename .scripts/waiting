@@ -1,0 +1,3 @@
+#!/bin/bash
+# Add a new entry to the GTD waiting list
+echo "- $@" >> ~/Dokumente/GTD/Waiting/Waiting.md
