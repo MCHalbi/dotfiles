@@ -10,7 +10,6 @@ unlet autoload_plug_path
 " Add plugins via vim-plug
 call plug#begin('~/.vim/plugged')
   Plug 'neovim/nvim-lspconfig'
-  Plug 'nvim-lua/completion-nvim'
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() }}
   Plug 'junegunn/fzf.vim'
   Plug 'stsewd/fzf-checkout.vim'

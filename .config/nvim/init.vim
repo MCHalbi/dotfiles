@@ -12,8 +12,6 @@ luafile ~/.config/nvim/lsp.lua
 set completeopt=menuone,noinsert,noselect
 let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
 
-autocmd BufEnter * lua require'completion'.on_attach()
-
 nnoremap <C-p> :Files<CR>
 nnoremap <leader><C-p> :GFiles<CR>
 nnoremap <leader>B :GBranches<CR>
