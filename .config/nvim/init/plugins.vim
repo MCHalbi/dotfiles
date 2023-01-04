@@ -22,7 +22,17 @@ call plug#begin('~/.vim/plugged')
   " Airline - Nice status line
   " (https://github.com/vim-airline/vim-airline)
   Plug 'vim-airline/vim-airline'
+  " nvim-cmp - Auto completion
+  " (https://github.com/hrsh7th/nvim-cmp/)
+  Plug 'hrsh7th/cmp-nvim-lsp'
+  Plug 'hrsh7th/cmp-buffer'
+  Plug 'hrsh7th/cmp-path'
+  Plug 'hrsh7th/cmp-cmdline'
+  Plug 'hrsh7th/nvim-cmp'
+  Plug 'hrsh7th/cmp-vsnip'
+  Plug 'hrsh7th/vim-vsnip'
 call plug#end()
 
 " Configure plugins
 source ~/.config/nvim/init/plugins/snipmate.vim
+source ~/.config/nvim/init/plugins/nvim-cmp.vim
