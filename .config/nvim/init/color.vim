@@ -5,6 +5,9 @@
 " use its 'default color' scheme.
 set background=dark
 
+colorscheme lucius
+LuciusDarkLowContrast
+
 " Use python-specific color-scheme for python files
 autocmd FileType python colorscheme pythondark
 
