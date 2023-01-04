@@ -16,10 +16,12 @@ call plug#begin('~/.vim/plugged')
   Plug 'stsewd/fzf-checkout.vim'
   Plug 'tpope/vim-fugitive'
   " SnipMate for snippets
+  " (https://github.com/garbas/vim-snipmate)
   Plug 'MarcWeber/vim-addon-mw-utils'
   Plug 'tomtom/tlib_vim'
   Plug 'garbas/vim-snipmate'
-  " Airline
+  " Airline - Nice status line
+  " (https://github.com/vim-airline/vim-airline)
   Plug 'vim-airline/vim-airline'
 call plug#end()
 
