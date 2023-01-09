@@ -32,9 +32,12 @@ call plug#begin('~/.vim/plugged')
   Plug 'hrsh7th/nvim-cmp'
   Plug 'hrsh7th/cmp-vsnip'
   Plug 'hrsh7th/vim-vsnip'
+  " Markdown preview
+  Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 call plug#end()
 
 " Configure plugins
 source ~/.config/nvim/init/plugins/fzf.vim
 source ~/.config/nvim/init/plugins/snipmate.vim
 source ~/.config/nvim/init/plugins/nvim-cmp.vim
+source ~/.config/nvim/init/plugins/markdown-preview.vim
