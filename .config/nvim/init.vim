@@ -3,6 +3,7 @@ source ~/.config/nvim/init/appearance.vim
 source ~/.config/nvim/init/color.vim
 source ~/.config/nvim/init/tabs.vim
 source ~/.config/nvim/init/folding.vim
+source ~/.config/nvim/init/keybindings.vim
 
 source ~/.config/nvim/init/plugins.vim
 
