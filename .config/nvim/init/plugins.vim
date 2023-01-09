@@ -10,6 +10,7 @@ unlet autoload_plug_path
 " Add plugins via vim-plug
 call plug#begin('~/.vim/plugged')
   Plug 'neovim/nvim-lspconfig'
+  " Fuzzy finder
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() }}
   Plug 'junegunn/fzf.vim'
   Plug 'stsewd/fzf-checkout.vim'
@@ -34,5 +35,6 @@ call plug#begin('~/.vim/plugged')
 call plug#end()
 
 " Configure plugins
+source ~/.config/nvim/init/plugins/fzf.vim
 source ~/.config/nvim/init/plugins/snipmate.vim
 source ~/.config/nvim/init/plugins/nvim-cmp.vim

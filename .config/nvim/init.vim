@@ -11,7 +11,3 @@ luafile ~/.config/nvim/lsp.lua
 " Completion config
 set completeopt=menuone,noinsert,noselect
 let g:completion_matching_strategy_list = ['exact', 'substring', 'fuzzy']
-
-nnoremap <C-p> :Files<CR>
-nnoremap <leader><C-p> :GFiles<CR>
-nnoremap <leader>B :GBranches<CR>
