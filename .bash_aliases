@@ -8,7 +8,6 @@ alias sc='sudo apt-get autoremove'
 # ------------------------------------------------------------------------------
 # Directory aliases
 # ------------------------------------------------------------------------------
-alias stm='cd ~/Semester'
 alias gopylib='cd /home/halbi/.local/lib/python3.5/site-packages/halbi'
 alias gopy='cd ~/Dokumente/Coding-Spielwiese/Python/'
 alias gopollux='cd ~/Dokumente/twaeng/pollux/'
