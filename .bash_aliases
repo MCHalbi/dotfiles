@@ -13,7 +13,6 @@ alias gopy='cd ~/Dokumente/Coding-Spielwiese/Python/'
 alias gopollux='cd ~/Dokumente/twaeng/pollux/'
 alias gotwaeng='cd ~/Dokumente/twaeng/'
 alias goconf='cd ~/.config/'
-alias gomaster='cd ~/Dokumente/Studium/master/master_thesis'
 
 # ------------------------------------------------------------------------------
 # tmate
