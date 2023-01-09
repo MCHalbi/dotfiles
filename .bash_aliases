@@ -10,6 +10,7 @@ alias sc='sudo apt-get autoremove'
 # ------------------------------------------------------------------------------
 alias gopylib='cd /home/halbi/.local/lib/python3.5/site-packages/halbi'
 alias gopy='cd ~/Dokumente/Coding-Spielwiese/Python/'
+alias gocpp='cd ~/Dokumente/Coding-Spielwiese/C++/'
 alias gopollux='cd ~/Dokumente/twaeng/pollux/'
 alias gotwaeng='cd ~/Dokumente/twaeng/'
 alias goconf='cd ~/.config/'
