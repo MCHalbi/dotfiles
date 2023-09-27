@@ -23,8 +23,8 @@ alias tmate='tmate -f ~/.tmate.conf'
 # ------------------------------------------------------------------------------
 # Moving around in bash
 # ------------------------------------------------------------------------------
-alias ll='ls -l'
-alias la='ls -la'
+alias ll='ls -l --group-directories-first'
+alias la='ls -la --group-directories-first'
 alias ld='ls -ld .*'
 alias q='exit'
 
@@ -33,7 +33,6 @@ alias q='exit'
 # -----------------------------------------------------------------------------
 alias python='python3' # Always use Python 3 by default
 alias pip='pip3' # Always uses pip3 by default
-alias manage='python manage.py' # Use manage.py inside a django project
 
 # ------------------------------------------------------------------------------
 # Git
