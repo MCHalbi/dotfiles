@@ -98,11 +98,33 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# Configuring the prompt
-PS1="\[\033[1;31m\][\t] \[\033[0;37m\]\u@\h:\[\033[1;34m\]\w > \[\033[0m\]"
-PROMPT_DIRTRIM=4
+function set-title() {
+  if [[ -z "$ORIG" ]]; then
+    ORIG=$PS1
+  fi
+  TITLE="\[\e]2;$*\a\]"
+  PS1=${ORIG}${TITLE}
+}
 
 eval $(thefuck --alias)
+
+# Enabling key bindings for fuzzy auto completion (see https://github.com/junegunn/fzf#using-linux-package-managers)
+source /usr/share/doc/fzf/examples/key-bindings.bash
+
+# ------------------------------------------------------------------------------
+# Git
+# ------------------------------------------------------------------------------
+# Enabling git completion (see https://git-scm.com/book/en/v2/Appendix-A%3A-Git-in-Other-Environments-Git-in-Bash)
+. ~/git-completion.bash
+
+. ~/git-prompt.sh
+export GIT_PS1_SHOWDIRTYSTATE=1
+export GIT_PS1_SHOWUPSTREAM="verbose name"
+export GIT_PS1_SHOWUNTRACKEDFILES=1
+
+# Configuring the prompt
+PS1='\[\033[1;31m\][\t] \[\033[0;37m\]\u@\h:\[\033[1;34m\]\w$(__git_ps1 " \[\033[38:5:28m\](%s)") \[\033[1;34m\]> \[\033[0m\]'
+PROMPT_DIRTRIM=4
 
 # ------------------------------------------------------------------------------
 # Ruby stuff? Delete this as soon as I remember what it was for ...
@@ -113,3 +135,7 @@ export SDKMAN_DIR="/home/halbi/.sdkman"
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
