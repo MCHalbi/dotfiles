@@ -19,6 +19,11 @@ if [ -d "$HOME/.scripts" ]; then
   PATH="$HOME/.scripts:$PATH"
 fi
 
+# Adding paths for other programs
+if [ -d "/opt/pycharm-2023.1.2" ]; then
+  PATH="/opt/pycharm-2023.1.2/bin:$PATH"
+fi
+
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
 
