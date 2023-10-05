@@ -13,7 +13,7 @@
 	ci = commit
 	st = status
 	df = difftool
-	graph = log --graph --oneline --decorate=short
+	graph = log --graph --format=format:'%C(bold ul brightcyan)%s%C(reset) %C(cyan)- %h%C(reset)%C(auto)%d%C(reset)%n%C(bold dim white)%an%C(reset) %C(dim white)%ar%C(reset)%n%+b'
 [push]
 	default = simple
 [difftool]
