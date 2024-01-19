@@ -8,12 +8,12 @@ alias sc='sudo apt-get autoremove'
 # ------------------------------------------------------------------------------
 # Directory aliases
 # ------------------------------------------------------------------------------
-alias gopylib='cd /home/halbi/.local/lib/python3.5/site-packages/halbi'
-alias gopy='cd ~/Dokumente/Coding-Spielwiese/Python/'
-alias gocpp='cd ~/Dokumente/Coding-Spielwiese/C++/'
-alias gopollux='cd ~/Dokumente/twaeng/pollux/'
-alias gotwaeng='cd ~/Dokumente/twaeng/'
-alias goconf='cd ~/.config/'
+alias gorepo='cd /home/halbi/Dokumente/Repos'
+alias goodoo='cd /home/halbi/Dokumente/Repos/odoo'
+alias goaddons='cd /home/halbi/Dokumente/Repos/odoo-addons-jobrad'
+alias gofrontend='cd /home/halbi/Dokumente/Repos/portal-frontend'
+alias gobackend='cd /home/halbi/Dokumente/Repos/portal-backend'
+alias gocapi='cd /home/halbi/Dokumente/Repos/customer-api'
 
 # ------------------------------------------------------------------------------
 # tmate
