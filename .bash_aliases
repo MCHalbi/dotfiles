@@ -47,13 +47,3 @@ alias vim='nvim'
 # ------------------------------------------------------------------------------
 alias vimrc='vim ~/.config/nvim/init.vim'
 alias eda='vim ~/.bash_aliases && source ~/.bash_aliases'
-
-# -----------------------------------------------------------------------------
-# Backup data to scott
-# -----------------------------------------------------------------------------
-alias bdocs='test -e /var/lock/unison-home && exit 0 || (touch /var/lock/unison-home;unison home; rm /var/lock/unison-home)'
-
-# ------------------------------------------------------------------------------
-# GTD
-# ------------------------------------------------------------------------------
-alias daily='cd ~/Dokumente/GTD && vim -S Daily.vim'
