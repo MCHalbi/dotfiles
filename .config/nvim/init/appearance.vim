@@ -2,12 +2,12 @@
 " Show line numbers
 set number
 
-" Show blue bar on column 81 (soft limit) and 121 (hard limit)
-set colorcolumn=81,121
+" Show blue bar on column 121
+set colorcolumn=121
 highlight ColorColumn ctermbg=lightblue
 
 " Mark text beyond the soft limit red
-match ErrorMsg '\%>80v.\+'
+match ErrorMsg '\%>120v.\+'
 
 " Show trailing spaces and tabs
 set list
