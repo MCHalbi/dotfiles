@@ -1,26 +1,26 @@
 [user]
-	name = Lukas Halbritter
-	email = halbi93@gmx.de
+  name = Lukas Halbritter
+  email = halbi93@gmx.de
 [core]
-	editor = nvim
+  editor = nvim
 [merge]
-	tool = vimdiff
+  tool = vimdiff
 [color]
-	ui = true
+  ui = true
 [alias]
-	co = checkout
-	br = branch
-	ci = commit
-	st = status
-	df = difftool
-	graph = log --graph --format=format:'%C(bold ul brightcyan)%s%C(reset) %C(cyan)- %h%C(reset)%C(auto)%d%C(reset)%n%C(bold dim white)%an%C(reset) %C(dim white)%ar%C(reset)%n%+b'
+  co = checkout
+  br = branch
+  ci = commit
+  st = status
+  df = difftool
+  graph = log --graph --format=format:'%C(bold ul brightcyan)%s%C(reset) %C(cyan)- %h%C(reset)%C(auto)%d%C(reset)%n%C(bold dim white)%an%C(reset) %C(dim white)%ar (%ad)%C(reset)%n%+b'
 [push]
-	default = simple
+  default = simple
 [difftool]
-	prompt = false
+  prompt = false
 [diff]
   tool = nvimdiff
 [difftool "nvimdiff"]
   cmd = "nvim -d \"$LOCAL\" \"$REMOTE\""
 [init]
-	defaultBranch = main
+  defaultBranch = main
