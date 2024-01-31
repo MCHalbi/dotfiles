@@ -24,3 +24,5 @@
   cmd = "nvim -d \"$LOCAL\" \"$REMOTE\""
 [init]
   defaultBranch = main
+[advice]
+  detachedHead = False
