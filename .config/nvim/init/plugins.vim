@@ -34,6 +34,16 @@ call plug#begin('~/.vim/plugged')
   Plug 'hrsh7th/vim-vsnip'
   " Markdown preview
   Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+  " PlantUML preview
+  Plug 'weirongxu/plantuml-previewer.vim'
+  Plug 'tyru/open-browser.vim'
+  " Keybindings for XML/HTML tag completion
+  Plug 'https://github.com/tpope/vim-ragtag.git'
+  Plug 'vinnymeller/swagger-preview.nvim', { 'do': 'npm install -g swagger-ui-watcher'}
+  " File system explorer
+  Plug 'preservim/nerdtree'
+  " Nice CSV formatting
+  Plug 'chrisbra/csv.vim'
 call plug#end()
 
 " Configure plugins
