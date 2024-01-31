@@ -13,7 +13,7 @@
   ci = commit
   st = status
   df = difftool
-  graph = log --graph --format=format:'%C(bold ul brightcyan)%s%C(reset) %C(cyan)- %h%C(reset)%C(auto)%d%C(reset)%n%C(bold dim white)%an%C(reset) %C(dim white)%ar (%ad)%C(reset)%n%+b'
+  graph = log --graph --date=format:'%d.%m.%Y, %H:%M:%S' --format=format:'%C(bold ul brightcyan)%s%C(reset) %C(cyan)- %h%C(reset)%C(auto)%d%C(reset)%n%C(bold dim white)%an%C(reset) %C(dim white)%ar (%ad)%C(reset)%n%+b'
 [push]
   default = simple
 [difftool]
