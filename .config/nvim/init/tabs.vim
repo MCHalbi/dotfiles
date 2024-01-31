@@ -1,6 +1,6 @@
 " *** TABS AND INDENDATIONS ***
-" Set textwidth to 80 characters
-set textwidth=80
+" Set textwidth to 120 characters
+set textwidth=120
 
 " Set tab size of 2 as default value
 set tabstop=2
