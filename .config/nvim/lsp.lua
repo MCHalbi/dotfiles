@@ -7,10 +7,12 @@ lspconfig.pylsp.setup{
         ruff = {
           enabled = true,
           lineLength = 120,
-          extendSelect = {"ARG"}, -- see https://docs.astral.sh/ruff/rules/ for list of all Ruff rules
+          select = {"ARG", "E", "F", "W"}, -- see https://docs.astral.sh/ruff/rules/ for list of all Ruff rules
+          preview = true,
+          perFileIgnores = { ["__init__.py"] = "F401" },
         },
         mypy = {
-          enabled = false,
+          enabled = true,
         }
       }
     }
