@@ -44,6 +44,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'preservim/nerdtree'
   " Nice CSV formatting
   Plug 'chrisbra/csv.vim'
+  Plug 'JeHuiPark/github-co-author-vim-plugin'
 call plug#end()
 
 " Configure plugins
@@ -51,3 +52,4 @@ source ~/.config/nvim/init/plugins/fzf.vim
 source ~/.config/nvim/init/plugins/snipmate.vim
 source ~/.config/nvim/init/plugins/nvim-cmp.vim
 source ~/.config/nvim/init/plugins/markdown-preview.vim
+source ~/.config/nvim/init/plugins/github-co-author-vim-plugin.vim
