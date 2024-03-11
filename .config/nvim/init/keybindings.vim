@@ -8,3 +8,11 @@ vnoremap <leader><C-c> "+y
 noremap <leader><C-v> "+p
 
 nnoremap <F12> :call RunOdooModuleTests()<CR><CR>
+
+" Split navigation
+nnoremap <S-Up> <C-w><Up>
+nnoremap <S-Down> <C-w><Down>
+nnoremap <S-Left> <C-w><Left>
+nnoremap <S-Right> <C-w><Right>
+nnoremap ¡ <C-w><Up><C-w>_
+nnoremap ¿ <C-w><Down><C-w>_
