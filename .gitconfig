@@ -3,6 +3,7 @@
   email = halbi93@gmx.de
 [core]
   editor = nvim
+  excludesfile = /home/halbi/.config/.gitignore.global
 [merge]
   tool = vimdiff
 [color]
