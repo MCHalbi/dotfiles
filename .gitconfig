@@ -15,6 +15,8 @@
   st = status
   df = difftool
   graph = log --graph --date=format:'%d.%m.%Y, %H:%M:%S' --format=format:'%C(bold ul brightcyan)%s%C(reset) %C(cyan)- %h%C(reset)%C(auto)%d%C(reset)%n%C(bold dim white)%an%C(reset) %C(dim white)%ar (%ad)%C(reset)%n%+b'
+  parents = "!f() { if [ -z \"$1\" ]; then commitish=\"HEAD\"; else commitish=\"$1\"; fi; git rev-parse \"${commitish}^@\"; }; f"
+  tree = "!f() { if [ -z \"$1\" ]; then commitish=\"HEAD\"; else commitish=\"$1\"; fi; git rev-parse \"${commitish}^{tree}\"; }; f"
 [push]
   default = simple
 [difftool]
