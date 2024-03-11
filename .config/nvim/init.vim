@@ -1,4 +1,5 @@
 let mapleader = " "
+source ~/.config/nvim/init/scripts/odoo_test.vim
 source ~/.config/nvim/init/appearance.vim
 source ~/.config/nvim/init/color.vim
 source ~/.config/nvim/init/tabs.vim
