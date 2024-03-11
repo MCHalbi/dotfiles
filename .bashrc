@@ -111,6 +111,9 @@ eval $(thefuck --alias)
 # Enabling key bindings for fuzzy auto completion (see https://github.com/junegunn/fzf#using-linux-package-managers)
 source /usr/share/doc/fzf/examples/key-bindings.bash
 
+# TeX Live directory
+export PATH=$PATH:/usr/local/texlive/2023/bin/x86_64-linux/
+
 # ------------------------------------------------------------------------------
 # Git
 # ------------------------------------------------------------------------------
@@ -121,6 +124,14 @@ source /usr/share/doc/fzf/examples/key-bindings.bash
 export GIT_PS1_SHOWDIRTYSTATE=1
 export GIT_PS1_SHOWUPSTREAM="verbose name"
 export GIT_PS1_SHOWUNTRACKEDFILES=1
+
+# PyEnv
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+
+# Rust / Cargo
+export PATH="/home/halbi/.cargo/bin:$PATH"
 
 # Configuring the prompt
 PS1='\[\033[1;31m\][\t] \[\033[0;37m\]\u@\h:\[\033[1;34m\]\w$(__git_ps1 " \[\033[38:5:28m\](%s)") \[\033[1;34m\]> \[\033[0m\]'
