@@ -1,0 +1,38 @@
+snippet formview
+	<record id="view_form_${1:model_name}" model="ir.ui.view">
+		<field name="name">${2:view_name}</field>
+		<field name="model">${3:model_xml_id}</field>
+		<field name="arch" type="xml">
+		  <form string="${5:form_label}">
+				${6:architecture}
+			</form>
+		</field>
+	</record>
+
+snippet treeview
+	<record id="view_tree_${1:model_name}" model="ir.ui.view">
+		<field name="name">${2:view_name}</field>
+		<field name="model">${3:model_xml_id}</field>
+		<field name="arch" type="xml">
+		  <tree>
+				${6:architecture}
+			</tree>
+		</field>
+	</record>
+
+snippet searchview
+	<record id="view_search_${1:model_name}" model="ir.ui.view">
+		<field name="name">${2:view_name}</field>
+		<field name="model">${3:model_xml_id}</field>
+		<field name="arch" type="xml">
+		  <search>
+				${6:architecture}
+			</search>
+		</field>
+	</record>
+
+snippet button
+	<button name="${1:name}" type="${2:type}" string="${3:label}" />
+
+snippet namedfield
+	<field name="${1:name}" />
