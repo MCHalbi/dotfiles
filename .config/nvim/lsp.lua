@@ -1,5 +1,8 @@
 -- Setup language servers.
 local lspconfig = require('lspconfig')
+local configs = require('lspconfig.configs')
+local util = require('lspconfig.util')
+
 lspconfig.pylsp.setup{
   settings = {
     pylsp = {
@@ -19,6 +22,20 @@ lspconfig.pylsp.setup{
   }
 }
 lspconfig.tsserver.setup {}
+
+configs.odoolsp = {
+  default_config = {
+    name = 'odoo-lsp',
+    cmd = {'odoo-lsp'},
+    filetypes = {'python', 'xml', 'javascript'},
+    root_dir = function(fname)
+      local root_files = {'.odoo_lsp', '.odoo_lsp.json', '.git'}
+      return util.root_pattern(unpack(root_files))(fname) or util.find_git_ancestor(fname)
+    end,
+  }
+}
+
+lspconfig.odoolsp.setup {}
 
 -- Global mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
