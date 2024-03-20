@@ -45,6 +45,7 @@ call plug#begin('~/.vim/plugged')
   " Nice CSV formatting
   Plug 'chrisbra/csv.vim'
   Plug 'JeHuiPark/github-co-author-vim-plugin'
+  Plug 'guns/xterm-color-table.vim'
 call plug#end()
 
 " Configure plugins

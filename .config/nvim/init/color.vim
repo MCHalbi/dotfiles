@@ -12,10 +12,20 @@ LuciusDarkLowContrast
 autocmd FileType python colorscheme pythondark
 
 " Set highlighting for diff sections (for vimdiff)
-highlight DiffAdd    cterm=none ctermfg=White ctermbg=DarkGreen
-highlight DiffChange cterm=none ctermfg=White ctermbg=DarkBlue
-highlight DiffDelete cterm=bold ctermfg=White ctermbg=DarkRed
-highlight DiffText   cterm=bold ctermfg=White ctermbg=DarkBlue
+highlight DiffAdd    cterm=none ctermfg=34 ctermbg=22
+highlight DiffChange cterm=none ctermfg=33 ctermbg=17
+highlight DiffDelete cterm=bold ctermfg=124 ctermbg=52
+highlight DiffText   cterm=bold ctermfg=33 ctermbg=17
+
+highlight link diffRemoved   DiffDelete
+highlight link diffAdded     DiffAdd
+highlight link diffChanged   DiffChange
+highlight      diffIndexLine cterm=none ctermfg=4
+highlight      diffFile      cterm=bold,underline ctermfg=45
+highlight      diffOldFile   cterm=none ctermfg=4
+highlight      diffNewFile   cterm=none ctermfg=4
+highlight      diffLine      cterm=bold,undercurl ctermfg=39
+highlight      diffSubname   cterm=undercurl ctermfg=39
 
 " Switch off syntax highlighting in vimdiff to avoid unreadable text due to
 " overlap of syntax highlighting and highlighted diff-sections.
