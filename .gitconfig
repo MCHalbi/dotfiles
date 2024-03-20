@@ -5,7 +5,7 @@
   editor = nvim
   excludesfile = /home/halbi/.config/.gitignore.global
 [merge]
-  tool = vimdiff
+  tool = nvimdiff
 [color]
   ui = true
 [alias]
