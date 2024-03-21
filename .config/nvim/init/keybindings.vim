@@ -9,6 +9,9 @@ noremap <leader><C-v> "+p<CR>
 
 nnoremap <F12> :call RunOdooModuleTests()<CR><CR>
 
+" Open nvim configuration directory in new tab
+nmap <leader>nv :tabnew ~/.config/nvim<CR>P
+
 " Split navigation
 nnoremap <S-Up> <C-w><Up>
 nnoremap <S-Down> <C-w><Down>
@@ -23,9 +26,6 @@ nnoremap ∃ gt
 
 " Mergetool
 nnoremap <expr> <CR> &diff ? ':diffput 2<CR>' : '<CR>'
-
-" Open nvim configuration directory in new tab
-nmap <leader>nv :tabnew ~/.config/nvim<CR>P
 
 " Moving lines up and down
 nnoremap ∀ :m .+1<CR>==
