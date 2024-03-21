@@ -23,3 +23,6 @@ nnoremap ∃ gt
 
 " Mergetool
 nnoremap <expr> <CR> &diff ? ':diffput 2<CR>' : '<CR>'
+
+" Open nvim configuration directory in new tab
+nmap <leader>nv :tabnew ~/.config/nvim<CR>P
