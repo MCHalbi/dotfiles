@@ -17,5 +17,9 @@ nnoremap <S-Right> <C-w><Right>
 nnoremap ¡ <C-w><Up><C-w>_
 nnoremap ¿ <C-w><Down><C-w>_
 
+" Tab navigation
+nnoremap ∫ gT
+nnoremap ∃ gt
+
 " Mergetool
 nnoremap <expr> <CR> &diff ? ':diffput 2<CR>' : '<CR>'
