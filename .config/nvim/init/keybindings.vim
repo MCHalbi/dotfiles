@@ -26,3 +26,9 @@ nnoremap <expr> <CR> &diff ? ':diffput 2<CR>' : '<CR>'
 
 " Open nvim configuration directory in new tab
 nmap <leader>nv :tabnew ~/.config/nvim<CR>P
+
+" Moving lines up and down
+nnoremap ∀ :m .+1<CR>==
+nnoremap Λ :m .-2<CR>==
+vnoremap ∀ :m '>+1<CR>gv=gv
+vnoremap Λ :m '<-2<CR>gv=gv
